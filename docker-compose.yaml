@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build: ./client/
+    ports:
+      - 80:80
+    networks:
+      - default
+
+  backend:
+    build: ./server/
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 2
+        window: 120s
+        delay: 5s
+    networks:
+      - default

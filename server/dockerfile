@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1
+# Build Stage
+FROM node:18-slim as Build
+WORKDIR /countdown-server
+COPY . .
+
+RUN npm clean-install && \
+  npm run build
+
+# Production Stage
+FROM node:18-alpine as Production
+WORKDIR /usr/countdown-server/
+
+COPY --from=Build /countdown-server/dist dist/
+COPY --from=Build /countdown-server/package*.json .
+
+ENV NODE_ENV=production
+RUN npm clean-install
+CMD node .

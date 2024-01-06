@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .debug {
+    border-width: 1px;
+    border-color: rgb(254 202 202);
+  }
+}
+
+@font-face {
+  font-family: DIN Next;
+  src: url("./assets/fonts/DIN-Next-Font.woff2");
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+@keyframes color-animation {
+  0% {
+    color: red;
+    text-shadow: 0 0 5px #aaf;
+  }
+
+  12.5% {
+    color: orangered;
+    text-shadow: 0 5px 0 #aaf;
+  }
+
+  25% {
+    color: orange;
+    text-shadow: 5px 0 0 #aaf;
+  }
+
+  37.5% {
+    color: yellow;
+    text-shadow: -5px 0 0 #aaf;
+  }
+
+  50% {
+    color: yellowgreen;
+    text-shadow: 0 -5px 0 #aaf;
+  }
+
+  62.5% {
+    color: green;
+    text-shadow: 0 0 -5px #aaf;
+  }
+
+  75% {
+    color: blue;
+    text-shadow: 0 0 5px #aaf;
+  }
+
+  87.5% {
+    color: indigo;
+    text-shadow: 0 5px 0 #aaf;
+  }
+
+  100% {
+    color: purple;
+  }
+}
